@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-//----------------------- THIS WAS MY ATTEMPT --------------------
+//----------------------- THIS WAS MY ATTEMPT it's on git--------------------
 /** this game is played on an 'array board' that has length of 7
  * a 'dot com' will be randomly placed in there and the player
  * will then try to guess where it is to hit it and sink it. just like

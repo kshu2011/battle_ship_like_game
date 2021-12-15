@@ -1,5 +1,5 @@
 
-//this is my version
+//this is my version on git too
 public class MyDotCom {
 	/** this class is the blueprint for
 	  making a MyDotCom object, which knows it's own location
