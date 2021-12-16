@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 //this is my version on git too
 public class MyDotCom {
@@ -6,24 +7,22 @@ public class MyDotCom {
 	  and how many times it has been hit. Also can tell if it has been
 	  hit. */
 	
-	int[] locationCells; //save the location of this 'dotcom'
-	int numOfHits; //keep track how many hits
+	ArrayList<String> locations = new ArrayList<String>();
 	public String checkYourself(String userGuess) {
-		int userGuessInt = Integer.parseInt(userGuess);
-		for (int i = 0; i < locationCells.length; i++) {
-			if (userGuessInt == locationCells[i]) {
-				numOfHits += 1; //increment the hits
-				if (numOfHits == 3) { //the dot com has been killed
-					return "kill";
-				} else {
-					return "hit";
-				}
+		int indexIs = locations.indexOf(userGuess); //if index is -1 that means not in there
+		if (indexIs >= 0) { //means it is in, so it's a hit
+			locations.remove(indexIs); //remove it, since it's been hit
+			if (locations.isEmpty()) { //that means kill
+				return "kill";
+			} else {
+				return "hit";
 			}
 		}
-		return "miss";//otherwise it's a miss so can return miss here
+		return "miss";
 	}
-	void setLocationCells(int[] cellLocations) {
+	
+	void setLocationCells(ArrayList<String> cellLocations) {
 		/** this set function sets the location of this dot com */
-		locationCells = cellLocations;
+		locations = cellLocations;
 	}
 }

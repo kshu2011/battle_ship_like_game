@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -18,11 +19,13 @@ public class MyDotComGame {
 		MyDotCom dot1 = new MyDotCom();
 		dotComs[0] = dot1;
 		int randomLocation = rand.nextInt(5); //generate a number between 0 and 4
-		int[] theLocation = {randomLocation, randomLocation + 1, randomLocation +2}; //the random location array
-		dotComs[0].setLocationCells(theLocation);
+		ArrayList<String> theLocation = new ArrayList<String>();
+		theLocation.add(Integer.toString(randomLocation));
+		theLocation.add(Integer.toString(randomLocation+1));
+		theLocation.add(Integer.toString(randomLocation+2));
+		dot1.setLocationCells(theLocation);
 		
-		
-		System.out.println("This is for testing, here is the location of dotcom: " + Arrays.toString(theLocation));
+		System.out.println("This is for testing, here is the location of dotcom: " + theLocation.toString());
 		
 		
 		while (isAlive) { //while dot com is alive keep asking user for input
@@ -33,24 +36,9 @@ public class MyDotComGame {
 			} else {
 				String result = dotComs[0].checkYourself(userGuessIs); //see if it hit/miss
 				numOfGuess++; //increment the guesses
-				if (result == "hit") {//if it is a hit
-					
-					System.out.println(result);
-					//remove the location/part that has been "hit", that way
-					//user cannot just keep "hitting" the same spot
-					int[] newLocation = dotComs[0].locationCells;
-					for (int i = 0; i < newLocation.length; i++) {
-						if (newLocation[i] == Integer.parseInt(userGuessIs)) {
-							newLocation[i] = 99999999; //remove that location, put a dummy variable in there 
-							dotComs[0].setLocationCells(newLocation); //now it's new location with hit recorded
-						}
-					}
-				} else if (result == "kill") {
-					System.out.println(result); 
-					dotComs[0] = null; //it's gone dead, remove it
+				System.out.println(result);
+				if (result == "kill") {
 					isAlive = false;
-				} else {
-					System.out.println(result); //missed
 				}
 			}
 		}
