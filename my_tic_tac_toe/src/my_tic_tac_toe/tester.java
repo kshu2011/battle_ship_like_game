@@ -12,12 +12,15 @@ public class tester {
 		System.out.println("Please enter location:");
 		String input;
 		
-		while (g.get_winner().equals("No winner")) {
-			input = user_input.next();
-			g.place(input);
-			g.print_grid();
-		}
-		System.out.println("Winner is: " + g.get_winner());
+//		while (g.get_winner().equals("No winner")) {
+//			input = user_input.next();
+//			g.place(input);
+//			g.print_grid();
+//		}
+//		System.out.println("Winner is: " + g.get_winner());
+		int[][] tada = new int[2][2];
+		int[] b = {1,2};
+		
 	}
 
 }
